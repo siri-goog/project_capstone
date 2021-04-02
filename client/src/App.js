@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import logo from './logo.svg';
 import './App.css';
+import Users from './components/users/users';
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class App extends Component {
   }
 
   callAPI() {
-      fetch("http://localhost:9000/testAPI")
+      fetch("/testAPI")
           .then(res => res.text())
           .then(res => this.setState({ apiResponse: res }));
   }
@@ -27,6 +28,7 @@ class App extends Component {
             <h1 className="App-title">Welcome to React</h1>
           </header>
           <p className="App-intro">{this.state.apiResponse}</p>
+          <Users></Users>
         </div>
       </div>
     );
